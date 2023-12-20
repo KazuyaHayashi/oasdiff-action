@@ -16,6 +16,19 @@ jobs:
             base: https://raw.githubusercontent.com/Tufin/oasdiff/main/data/openapi-test1.yaml
             revision: https://raw.githubusercontent.com/Tufin/oasdiff/main/data/openapi-test3.yaml
             format: 'text'
+  oasdiff_diff_flatten:
+    runs-on: ubuntu-latest
+    name: Test diff action with flatten option
+    steps:
+        - name: checkout
+          uses: actions/checkout@v3
+        - name: Running diff action with flatten option
+          id: test_ete_flatten
+          uses: ./diff
+          with:
+            base: https://raw.githubusercontent.com/Tufin/oasdiff/main/data/allof/simple.yaml
+            revision: https://raw.githubusercontent.com/Tufin/oasdiff/main/data/allof/revision.yaml
+            format: 'text'
   oasdiff_diff_exclude_elements:
     runs-on: ubuntu-latest
     name: Test diff action with exclude-elements option
