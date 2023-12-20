@@ -7,8 +7,9 @@ readonly format="$3"
 readonly fail_on_diff="$4"
 readonly include_path_params="$5"
 readonly exclude_elements="$6"
+readonly flatten="$7"
 
-echo "running oasdiff diff base: $base, revision: $revision, format: $format, fail_on_diff: $fail_on_diff, include_path_params: $include_path_params, exclude_elements: $exclude_elements"
+echo "running oasdiff diff base: $base, revision: $revision, format: $format, fail_on_diff: $fail_on_diff, include_path_params: $include_path_params, exclude_elements: $exclude_elements, flatten: $flatten"
 
 # Build flags to pass in command
 flags=""
@@ -23,6 +24,9 @@ if [ "$include_path_params" = "true" ]; then
 fi
 if [ "$exclude_elements" != "" ]; then
     flags="${flags} --exclude-elements ${exclude_elements}"
+fi
+if [ "$flatten" = "true" ]; then
+    flags="${flags} --flatten"
 fi
 echo "flags: $flags"
 

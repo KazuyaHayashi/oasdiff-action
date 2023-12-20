@@ -23,6 +23,10 @@ inputs:
     description: 'Exclude certain kinds of changes'
     required: false
     default: ''
+  flatten:
+    description: 'Merge subschemas under allOf before diff'
+    required: false
+    default: 'false'
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -33,3 +37,4 @@ runs:
     - ${{ inputs.fail-on-diff }}
     - ${{ inputs.include-path-params }}
     - ${{ inputs.exclude-elements }}
+    - ${{ inputs.flatten }}

@@ -9,8 +9,9 @@ readonly include_path_params="$5"
 readonly deprecation_days_beta="$6"
 readonly deprecation_days_stable="$7"
 readonly exclude_elements="$8"
+readonly flatten="$9"
 
-echo "running oasdiff breaking... base: $base, revision: $revision, fail_on_diff: $fail_on_diff, include_checks: $include_checks, include_path_params: $include_path_params, deprecation_days_beta: $deprecation_days_beta, deprecation_days_stable: $deprecation_days_stable, exclude_elements: $exclude_elements"
+echo "running oasdiff breaking... base: $base, revision: $revision, fail_on_diff: $fail_on_diff, include_checks: $include_checks, include_path_params: $include_path_params, deprecation_days_beta: $deprecation_days_beta, deprecation_days_stable: $deprecation_days_stable, exclude_elements: $exclude_elements, flatten: $flatten"
 
 # Build flags to pass in command
 flags=""
@@ -31,6 +32,9 @@ if [ -n "$deprecation_days_stable" ]; then
 fi
 if [ "$exclude_elements" != "" ]; then
     flags="${flags} --exclude-elements ${exclude_elements}"
+fi
+if [ "$flatten" = "true" ]; then
+    flags="${flags} --flatten"
 fi
 echo "flags: $flags"
 
