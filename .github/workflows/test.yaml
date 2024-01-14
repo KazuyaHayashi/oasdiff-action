@@ -27,9 +27,8 @@ jobs:
           uses: ./diff
           with:
             base: 'specs/base.yaml'
-            revision: 'specs/revision.yaml'
+            revision: 'specs/base-exclude-elements.yaml'
             format: 'text'
-            exclude-elements: 'description,title,summary'
         - name: Test diff action output
           run: |
             delimiter=$(cat /proc/sys/kernel/random/uuid | tr -d '-')
