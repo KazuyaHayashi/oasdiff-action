@@ -27,7 +27,7 @@ jobs:
           uses: ./diff
           with:
             base: 'specs/base.yaml'
-            revision: 'specs/base-exclude-elements.yaml'
+            revision: 'specs/revision.yaml'
             format: 'text'
             exclude-elements: 'description,title,summary'
         - name: Test diff action output
